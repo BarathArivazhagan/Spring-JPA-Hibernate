@@ -54,7 +54,8 @@ public class EmployeeService {
 	}
 
 	public List<String> findAllEmployeeNames() {		
-		return empRep.findAllEmployeeNames();
+		return empRep.findAllEmployeeNamesByProjection();
+		//return empRep.findAllEmployeeNames();
 	}
 
 
