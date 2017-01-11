@@ -1,5 +1,5 @@
 
-#Simple project to demostrate Spring Data Jpa #
+#Simple project to demostrate Spring Data JPA #
 
 
 ## User Entity ##
@@ -24,8 +24,8 @@
 
 
 ## User Repository: JpaRepository##
-```
-interface UserRepository extends JpaRepository<User, Integer>{}```
+
+```interface UserRepository extends JpaRepository<User, Integer>{}```
 
 
 ## User service ## : to perform CRUD operations in User Entity 
