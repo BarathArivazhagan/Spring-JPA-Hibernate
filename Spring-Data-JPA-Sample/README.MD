@@ -4,7 +4,7 @@
 
 ## User Entity ##
 ```
-        @Entity
+       @Entity
 	@Table(name="USER")
 	protected static class User implements Serializable{	
 
@@ -38,7 +38,7 @@ interface UserRepository extends JpaRepository<User, Integer>{}
 
 
 ```
-  		@Service
+  	@Service
 	class UserSerivce{
 		
 			
