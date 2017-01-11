@@ -4,7 +4,7 @@
 
 ## User Entity ##
 ```
-@Entity
+        @Entity
 	@Table(name="USER")
 	protected static class User implements Serializable{	
 
@@ -20,17 +20,25 @@
 		private String userName;
     
     //getters and setters
-}```
+}
+
+```
 
 
 ## User Repository: JpaRepository##
 
-```interface UserRepository extends JpaRepository<User, Integer>{}```
+```
+
+interface UserRepository extends JpaRepository<User, Integer>{}
+
+```
 
 
 ## User service ## : to perform CRUD operations in User Entity 
+
+
 ```
-  @Service
+  		@Service
 	class UserSerivce{
 		
 			
@@ -49,4 +57,5 @@
 		}
 		
 		
-	}```
+	}
+```
