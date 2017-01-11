@@ -1,9 +1,9 @@
 
-**Simple project to demostrate Spring Data Jpa **
+#Simple project to demostrate Spring Data Jpa #
 
 
-User Entity 
-
+## User Entity ##
+```
 @Entity
 	@Table(name="USER")
 	protected static class User implements Serializable{	
@@ -20,16 +20,16 @@ User Entity
 		private String userName;
     
     //getters and setters
-}
+}```
 
 
-**User Repository: JpaRepository **
+## User Repository: JpaRepository##
+```
+interface UserRepository extends JpaRepository<User, Integer>{}```
 
-interface UserRepository extends JpaRepository<User, Integer>{}
 
-
-*** User service *** : to perform CRUD operations in User Entity 
-
+## User service ## : to perform CRUD operations in User Entity 
+```
   @Service
 	class UserSerivce{
 		
@@ -49,5 +49,4 @@ interface UserRepository extends JpaRepository<User, Integer>{}
 		}
 		
 		
-	}
-	
+	}```
