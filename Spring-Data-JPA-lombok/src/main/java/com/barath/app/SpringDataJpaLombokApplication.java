@@ -37,8 +37,12 @@ public class SpringDataJpaLombokApplication {
 	
 	@GetMapping("/")
 	public User getUser(){
-		System.out.println(userSer.getUser(100).toString());
-		return userSer.getUser(100);
+		User user=userSer.getUser(100);
+		System.out.println(user.toString());
+		ObjectMapper mapper=new ObjectMapper();
+		System.out.println("Object mapper "+mapper.writeValueAsString(user));
+		
+		return user;
 	}
 	
 	
