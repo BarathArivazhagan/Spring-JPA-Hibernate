@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: One-To-Many-JPA-Sample
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: ba53395
+Implementation-Vendor-Id: com.barath.jpa.samples
+Build-Jdk: 1.8.0_40
+Implementation-URL: http://projects.spring.io/spring-boot/One-To-Many-
+ JPA-Sample/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
