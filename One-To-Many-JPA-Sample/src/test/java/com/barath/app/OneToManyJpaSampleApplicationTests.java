@@ -1,5 +1,6 @@
 package com.barath.app;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -20,7 +21,7 @@ public class OneToManyJpaSampleApplicationTests {
 	
 	
 	
-	public void loadData(){
+	public void loadData() throws Exception{
 		
 		
 		Department department1=new Department(20, "SCIENCE");
@@ -29,7 +30,7 @@ public class OneToManyJpaSampleApplicationTests {
 		Department department4=new Department(23, "COMPUTER");
 		Department department5=new Department(24, "TAMIL");
 		SimpleDateFormat sf = new SimpleDateFormat("dd-mm-yyyyy"); 
-		Employee emp1=new Employee(1000, "barath", 23, EmployeeGender.MALE, new Datsf.format("10-12-1991"), department1);
+		Employee emp1=new Employee(1000, "barath", 23, EmployeeGender.MALE, sf.parse("10-12-1991"), department1);
 		
 	}
 
