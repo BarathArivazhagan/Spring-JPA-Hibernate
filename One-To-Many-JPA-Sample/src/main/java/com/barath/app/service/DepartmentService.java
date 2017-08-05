@@ -1,4 +1,4 @@
-package com.barath.app;
+package com.barath.app.service;
 
 public class DepartmentService {
 

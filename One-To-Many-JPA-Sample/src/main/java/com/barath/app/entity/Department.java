@@ -1,4 +1,4 @@
-package com.barath.app;
+package com.barath.app.entity;
 
 import java.io.Serializable;
 import java.util.Set;

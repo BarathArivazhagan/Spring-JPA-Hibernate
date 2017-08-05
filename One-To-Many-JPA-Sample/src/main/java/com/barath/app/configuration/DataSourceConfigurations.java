@@ -1,4 +1,4 @@
-package com.barath.app;
+package com.barath.app.configuration;
 
 import java.util.Map;
 

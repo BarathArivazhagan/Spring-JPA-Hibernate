@@ -9,11 +9,13 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.barath.app.Employee.EmployeeGender;
+import com.barath.app.entity.Department;
+import com.barath.app.entity.Employee;
+import com.barath.app.entity.Employee.EmployeeGender;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class OneToManyJpaSampleApplicationTests {
+public class ApplicationTests {
 
 	@Test
 	public void contextLoads() {

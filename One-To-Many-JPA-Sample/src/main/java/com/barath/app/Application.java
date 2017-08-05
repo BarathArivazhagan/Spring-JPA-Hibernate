@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(exclude={HibernateJpaAutoConfiguration.class,DataSourceAutoConfiguration.class})
 @EnableJpaRepositories
-public class OneToManyJpaSampleApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OneToManyJpaSampleApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }
