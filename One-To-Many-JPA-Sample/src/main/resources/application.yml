@@ -1,0 +1,36 @@
+
+
+server:
+  port: 8085
+spring:
+  application:
+    name: spring-data-jpa-one-to-many-samples
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  profiles:
+    active:
+      - MYSQL
+
+---
+
+spring:
+  profiles: HSQLDB-SERVER
+  datasource:
+    driver-class-name: org.hsqldb.jdbcDriver
+    url: jdbc:hsqldb:hsql://localhost/
+    username: SA
+    password:
+
+    
+---
+
+spring:
+  profiles: MYSQL
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/testdb?autoReconnect=true&useSSL=false
+    username: root
+    password: root 
+    
