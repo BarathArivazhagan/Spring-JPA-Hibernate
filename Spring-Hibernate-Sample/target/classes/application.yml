@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: Spring-hibernate-Sample
-  profiles:
-    active: local
-  autoconfigure:
-    exclude:
-      - "org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"
-      - "org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration"

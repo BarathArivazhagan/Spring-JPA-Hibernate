@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.barath.app.SpringDataJpaLombokApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.596 sec - in com.barath.app.SpringDataJpaLombokApplicationTests
