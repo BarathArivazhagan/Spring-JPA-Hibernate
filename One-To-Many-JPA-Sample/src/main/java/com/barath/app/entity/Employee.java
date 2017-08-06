@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="SAMPLE_EMPLOYEE")
+@Table(name="EMPLOYEE")
 public class Employee implements Serializable  {
 	
 	

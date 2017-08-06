@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.barath.app.entity.Employee;
+import com.barath.app.exception.EmployeeNotFoundException;
 import com.barath.app.repository.EmployeeRepository;
 
 @Service
@@ -16,13 +17,13 @@ public class EmployeeService {
 	private static final Logger logger=LoggerFactory.getLogger(EmployeeService.class);
 	
 	@Autowired
-	private EmployeeRepository empRep;
+	private EmployeeRepository employeeRepository;
 	
 	
 	public Employee addEmployee(Employee employee){
 		
 		if(employee != null){
-			employee=empRep.save(employee);
+			employee=employeeRepository.save(employee);
 		}
 		return employee;
 		
@@ -30,7 +31,7 @@ public class EmployeeService {
 	
 	public Employee readEmployee(long employeeId){	
 				
-		return empRep.findOne(employeeId);
+		return employeeRepository.findOne(employeeId);
 	}
 
 
@@ -41,7 +42,7 @@ public class EmployeeService {
 			if(employee !=null){
 				updEmp= readEmployee(employee.getEmployeeId());
 				if(updEmp !=null){
-					updEmp =empRep.save(updEmp);
+					updEmp =employeeRepository.save(updEmp);
 				}
 			}			
 		}catch(Exception ex){
@@ -57,12 +58,12 @@ public class EmployeeService {
 	public void deleteEmployee(Employee employee){
 		
 		if(employee !=null){
-			empRep.delete(employee);
+			employeeRepository.delete(employee);
 		}
 		
 	}
 	
-	public void deleteEmployee(long employeeId) throws EmployeeNotFoundException{
+	public void deleteEmployee(long employeeId) {
 		
 		Employee employee=readEmployee(employeeId);
 		
@@ -75,20 +76,10 @@ public class EmployeeService {
 	
 	
 	public List<Employee> findAllEmployees(){
-		return empRep.findAll();
+		return employeeRepository.findAll();
 	}
 
-	class EmployeeNotFoundException extends Exception{
-		
-		public EmployeeNotFoundException() {
-			super();
-		}
-		
-		  
-		public EmployeeNotFoundException(String message){
-			super(message);
-		}
-	}
+	 
 	
 
 }
