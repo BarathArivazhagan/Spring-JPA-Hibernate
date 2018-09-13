@@ -11,10 +11,6 @@ import javax.persistence.Table;
 @Table(name="COUNTRY")
 public class Country  implements Serializable{
 	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1500588143313678440L;
 
 	@Id

@@ -11,9 +11,6 @@ import javax.persistence.Table;
 @Table(name="SPORT")
 public class Sport implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7451381680546768245L;
 
 	@Id
