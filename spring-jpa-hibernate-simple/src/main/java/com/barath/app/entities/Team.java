@@ -17,10 +17,6 @@ import javax.persistence.Table;
 @Table(name="TEAM")
 public class Team implements Serializable {
 	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7762318616016786577L;
 
 	@Id
@@ -98,7 +94,7 @@ public class Team implements Serializable {
 
 	public Team() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 
