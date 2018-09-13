@@ -4,17 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.barath.jpa.samples</groupId>
-	<artifactId>One-To-Many-JPA-Sample</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>one-to-many-simple</artifactId>	
 	<packaging>war</packaging>
 
-	<name>One-To-Many-JPA-Sample</name>
-	<description>Demo project for Spring Boot One-To-Many-JPA-Sample</description>
+	<name>one-to-many-simple</name>
+	<description>one-to-many-simple</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.4.RELEASE</version>
+		<version>2.0.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 

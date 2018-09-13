@@ -4,17 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.barath.jpa.samples</groupId>
-	<artifactId>Spring-Data-JPA-Sample</artifactId>
-	<version>1.0.0.RELEASE</version>
+	<artifactId>spring-data-jpa-simple</artifactId>	
 	<packaging>jar</packaging>
 
-	<name>Spring-Data-JPA-Sample</name>
-	<description>Spring-Data-JPA-Sample</description>
+	<name>spring-data-jpa-simple</name>
+	<description>spring-data-jpa-simple</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.2.RELEASE</version>
+		<version>2.0.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
