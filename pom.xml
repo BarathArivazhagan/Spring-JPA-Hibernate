@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.barath.cloud.samples</groupId>
-	<artifactId>spring-cloud-sidecar-sample</artifactId>
-	<version>2.0.3.RELEASE</version>
+	<groupId>com.barath.jpa.samples</groupId>
+	<artifactId>spring-data-jpa-workshop</artifactId>
+	<version>2.0.4.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>spring-cloud-sidecar-sample</name>
@@ -21,11 +21,11 @@
 
 	
 	<modules>
-         <module>one-to-many-simple</module>
+        
+         <module>spring-data-jpa-query</module>
          <module>spring-data-jpa-embeddedId</module>
-         <module>spring-data-jpa-lombok</module>
          <module>spring-data-jpa-simple</module>
-         <module>spring-jpa-hibernate-sample</module>
+         <module>spring-jpa-hibernate-simple</module>
          
     </modules>	
 
