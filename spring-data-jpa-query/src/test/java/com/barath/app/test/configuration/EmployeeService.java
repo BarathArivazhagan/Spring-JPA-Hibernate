@@ -26,6 +26,7 @@ public class EmployeeService {
         return this.employeeRepository.findById(employeeId).orElseThrow(() -> new EmployeeNotFoundException("emp not found "));
     }
 
+
     public List<Employee> findAll() {
 
         return this.employeeRepository.findAll();
