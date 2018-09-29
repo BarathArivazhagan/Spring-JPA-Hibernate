@@ -23,7 +23,7 @@ public class EmployeeService {
 
     public Employee getEmployee(Long employeeId) {
 
-        return this.employeeRepository.findById(employeeId).orElseThrow(() -> new TestContext.EmployeeNotFoundException("emp not found "));
+        return this.employeeRepository.findById(employeeId).orElseThrow(() -> new EmployeeNotFoundException("emp not found "));
     }
 
     public List<Employee> findAll() {
