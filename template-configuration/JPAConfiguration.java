@@ -1,4 +1,4 @@
-package com.citi.demo.app.configuration;
+package com.barath.app.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
