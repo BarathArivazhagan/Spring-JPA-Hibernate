@@ -36,5 +36,6 @@ public class EmployeeRepositoryTest extends SpringJPARunner {
         this.employeeRepository.save(new Employee("BARRY",52, Employee.EmployeeGender.MALE));
         List<Employee> employees = this.employeeRepository.findCustomEmployeesLessThanAge(employeeAge);
         logger.info("employees {}",mapper.writeValueAsString(employees));
+        Assert.assertEquals(2, this.employeeRepository.findAll().size());
     }
 }
