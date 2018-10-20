@@ -1,6 +1,8 @@
 package com.barath.app;
 
 import java.io.Serializable;
+import java.lang.invoke.MethodHandles;
+import java.util.Objects;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
@@ -9,12 +11,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 
 @SpringBootApplication
 public class Application {
+
+	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -98,8 +104,10 @@ public class Application {
 		}
 		
 		public User getUser(int userId){
-			System.out.println("Getting the user with userid  "+userId);
+
+			if(logger.isInfoEnabled()) { logger.info("getting the user with userid {} ",userId); }
 			Optional<User> user=userRep.findById(userId);
+			user.orElseThrow(() -> new UserNotFoundException(String.format("user with id %s not found",userId)));
 			return user.get();
 		}
 		
@@ -107,9 +115,23 @@ public class Application {
 		public void init(){
 			User user=new User(100,"barath");
 			addUser(user);
-			
-			user=getUser(100);
-			System.out.println("user found "+user.toString());
+			User userFound=getUser(100);
+			logger.info("user found {}", Objects.toString(user));
 		}
+	}
+
+	protected  static class UserNotFoundException extends RuntimeException {
+
+
+		public UserNotFoundException() {
+			super();
+		}
+
+
+		public UserNotFoundException(String message) {
+			super(message);
+		}
+
+
 	}
 }

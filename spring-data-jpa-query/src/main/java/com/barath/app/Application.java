@@ -4,7 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.*;
@@ -12,11 +14,57 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
+@RestController
+@RequestMapping(value = "/employees",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class Application {
+
+	private final EmployeeService employeeService;
+
+	public Application(EmployeeService employeeService) {
+		this.employeeService = employeeService;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
+
+
+	@GetMapping
+	public List<Employee> getEmployees(){
+		return this.employeeService.findAll();
+	}
+
+	@GetMapping(value = "/{employeeName}")
+	public List<Employee> getEmployees(@PathVariable String employeeName){
+		return this.employeeService.getEmployeesbyName(employeeName);
+	}
+
+	@GetMapping(value = "/{employeeId}")
+	public Employee getEmployees(@PathVariable Long employeeId){
+		return this.employeeService.getEmployee(employeeId);
+	}
+
+	@PostMapping
+	public List<Employee> saveEmployees(@RequestBody List<Employee> employees){
+		return this.employeeService.saveEmployees(employees);
+	}
+
+	@PostMapping(value = "/newEmployee")
+	public List<Employee> saveEmployee(@RequestBody List<Employee> employees){
+		return this.employeeService.saveEmployees(employees);
+	}
+
+	@PutMapping
+	public List<Employee> updateEmployees(@RequestBody List<Employee> employees){
+		return this.employeeService.saveEmployees(employees);
+	}
+
+	@GetMapping(value = "/byAgeLessThan/{age}")
+	public List<Employee> findEmployeesLessThanAge(Integer employeeAge){
+		return this.employeeService.findEmployeesLessThanAgeCustom(employeeAge);
+	}
+
+
 }
 
 @Service
@@ -42,6 +90,14 @@ class EmployeeService {
 	public Employee getEmployee(Long employeeId){
 
 		return this.employeeRepository.findById(employeeId).orElseThrow( () -> new EmployeeNotFoundException("emp not found "));
+	}
+
+	public List<Employee> getEmployeesbyName(String employeeName) {
+		return this.employeeRepository.findByEmployeeName(employeeName);
+	}
+
+	public List<Employee> findEmployeesLessThanAgeCustom(int age) {
+		return this.employeeRepository.findCustomEmployeesLessThanAge(age);
 	}
 
 	public List<Employee> findAll(){
@@ -96,7 +152,7 @@ class EmployeeNotFoundException extends RuntimeException{
 	}
 }
 
- interface  EmployeeRepository extends JpaRepository<Employee,Long> {
+ interface  EmployeeRepository extends JpaRepository<Employee,Long>, EmployeeRepositoryCustom{
 
 	List<Employee> findByEmployeeGender(Employee.EmployeeGender employeeGender);
 	List<Employee> findByEmployeeAgeBetween(int start, int end);
@@ -116,6 +172,13 @@ class EmployeeNotFoundException extends RuntimeException{
 
 
 }
+
+interface EmployeeRepositoryCustom {
+
+	@Query(value = "select * from employee e where e.emp_age < ?1",nativeQuery = true)
+	List<Employee> findCustomEmployeesLessThanAge(int age);
+}
+
 
 @Entity
 @Table(name="EMPLOYEE")

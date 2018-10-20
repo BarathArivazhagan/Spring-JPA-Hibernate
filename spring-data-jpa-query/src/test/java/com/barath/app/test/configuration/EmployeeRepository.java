@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface EmployeeRepository extends JpaRepository<Employee, Long>, EmployeeRepositoryCustom {
 
         List<Employee> findByEmployeeGender(Employee.EmployeeGender employeeGender);
 
@@ -22,9 +22,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
             }
 
     /**
-     * custom query demonstration
+     * custom query demonstration.
+     *
      **/
     @Query(name = "SELECT emp from EMPLOYEE e where e.emp_name=?1", nativeQuery = true)
-        List<Employee> findByEmployeeName(String empName);
+    List<Employee> findByEmployeeName(String empName);
+
 
 }
